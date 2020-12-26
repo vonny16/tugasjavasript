@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tugas Javascript</title>
+</head> 
+
+<body>
+    <h1>FORMULIR PENDAFTARAN MAHASISWA</h1>
+    <table border="0" width="100%">
+        <tr>
+            <td>Nama : </td>
+            <td><input type="text" name="nama" id="nama"></td>
+            <td rowspan="5">
+                Nama : <span id="resultNama"></span>
+                <br> Jenis Kelamin : <span id="resultJK"></span>
+                <br> Prodi : <span id="resultProdi"></span>
+                <br> Hoby : <span id="resultHoby"></span>
+            </td>
+        </td>
+        </tr>
+        <tr>
+            <td>Jenis Kelamin : </td>
+            <td>
+                <input type="radio" name="jk" id="Pria" value="Pria"><label for="">Pria</label>
+                <input type="radio" name="jk" id="Wanita" value="Wanita"><label for="">Wanita</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Prodi :</td>
+            <td>
+                <select name="" id="prodi">
+                    <option value="Teknik Informatika">Teknik Informatika</option>
+                    <option value="Sistem Informatika">Sistem Informatika</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Hoby</td>
+            <td>
+                <input type="checkbox" name="hoby" id="Coding" value="Coding"><label for="Coding">Coding</label>
+                <input type="checkbox" name="hoby" id="Jalan-Jalan" value="Jalan-Jalan"><label for="Jalan-Jalan">Jalan-Jalan</label>
+                <input type="checkbox" name="hoby" id="Makan" value="Makan"><label for="Makan">Makan</label>
+            </td>
+
+        </tr>
+        <tr>
+            <td><button type="button" id="kirim">Kirim</button></td>
+        </tr>
+    </table>
+    <script type="text/Javascript">
+
+        document.getElementById('kirim').addEventListener('click',function() {
+            let nama = document.getElementById('nama').value;
+            let jk = document.querySelector('input[name="jk"]:checked').value;
+            let prodi = document.getElementById('prodi').value;
+            let datahoby = document.querySelectorAll('input[name="hoby"]:checked');
+            var hoby= '';
+            for(i=0; i<datahoby.length; i++) {
+                hoby += datahoby[i].value + '';
+                hoby += i < datahoby.length - 1 ? ' , ' : '';
+            }
+            console.log(hoby);
+
+            document.getElementById('resultNama').innerHTML = nama;
+            document.getElementById('resultJK').innerHTML = jk;
+            document.getElementById('resultProdi').innerHTML = prodi;
+            document.getElementById('resultHoby').innerHTML = hoby;
+        });
+
+    </script>
+</body>
+</html>
